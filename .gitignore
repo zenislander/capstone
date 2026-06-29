@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Environment secrets — never commit the real .env
+.env
+
+# Generated synthetic data (recreated by `python main.py build`)
+data/emails.json
+data/intakes.json
+data/tickets.json
+data/documents.json
+data/policy.json
+
+# Pipeline run artifacts (recreated by `python main.py run`)
+output/
+
+# Provider Query Agent run output (recreated by `python main.py run`)
+Provider Query Agent/provider_query_agent/data/provider_query_output.json
+
+# Claude Code session files
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db

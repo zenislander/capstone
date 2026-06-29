@@ -1,0 +1,27 @@
+# Core RAG stack
+langchain==1.3.11
+langchain-community==0.4.2
+langchain-core==1.4.8
+langchain-text-splitters==1.1.2
+langchain-chroma==1.1.0
+chromadb==1.5.9
+
+# Embedding backends
+# - sentence-transformers + langchain-huggingface: REQUIRED for Option A
+#   (real semantic embeddings on Windows). Auto-downloads the MiniLM model
+#   from huggingface.co on first run (~80MB), then runs fully offline.
+# - scikit-learn: used for Option B's TF-IDF stand-in (EMBEDDING_BACKEND=tfidf).
+#   Keep this installed even after switching to Option A; it's a small
+#   dependency and costs nothing to leave in.
+sentence-transformers==5.6.0
+langchain-huggingface==1.2.2
+torch==2.12.1
+scikit-learn==1.8.0
+
+# Structured extraction + aggregation
+pydantic==2.13.4
+pandas==3.0.2
+
+# Optional, only needed if you wire up extract_from_raw_intake() in
+# extraction/structured.py for real LLM-based field extraction:
+# langchain-anthropic

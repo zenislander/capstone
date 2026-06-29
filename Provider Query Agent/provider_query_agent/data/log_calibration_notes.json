@@ -1,0 +1,57 @@
+[
+  {
+    "bureau": "IRS",
+    "contract_start": "2026-02-14",
+    "days_in_execution": 135,
+    "n_aws_calls": 1013,
+    "n_gcp_calls": 587,
+    "raw_unscaled_cost_usd": 14.9162,
+    "target_spend_usd": 55000.0,
+    "scale_factor_applied": 3687.27,
+    "cebd_on_file": true
+  },
+  {
+    "bureau": "BFS",
+    "contract_start": "2026-03-28",
+    "days_in_execution": 93,
+    "n_aws_calls": 696,
+    "n_gcp_calls": 433,
+    "raw_unscaled_cost_usd": 10.4722,
+    "target_spend_usd": 40000.0,
+    "scale_factor_applied": 3819.65,
+    "cebd_on_file": true
+  },
+  {
+    "bureau": "BEP",
+    "contract_start": "2026-04-11",
+    "days_in_execution": 79,
+    "n_aws_calls": 613,
+    "n_gcp_calls": 345,
+    "raw_unscaled_cost_usd": 8.7751,
+    "target_spend_usd": 38500.0,
+    "scale_factor_applied": 4387.43,
+    "cebd_on_file": true
+  },
+  {
+    "bureau": "OCC",
+    "contract_start": "2026-01-22",
+    "days_in_execution": 158,
+    "n_aws_calls": 1172,
+    "n_gcp_calls": 697,
+    "raw_unscaled_cost_usd": 17.6721,
+    "target_spend_usd": 39000.0,
+    "scale_factor_applied": 2206.86,
+    "cebd_on_file": true
+  },
+  {
+    "bureau": "US Mint",
+    "contract_start": "2026-02-01",
+    "days_in_execution": 148,
+    "n_aws_calls": 1085,
+    "n_gcp_calls": 695,
+    "raw_unscaled_cost_usd": 15.6776,
+    "target_spend_usd": 28800.0,
+    "scale_factor_applied": 1837.02,
+    "cebd_on_file": false
+  }
+]

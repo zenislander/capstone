@@ -1,0 +1,5 @@
+model_id,model_name,token_type,price_per_1k_tokens_usd
+gemini-2.5-pro,Gemini 2.5 Pro,input,0.00125
+gemini-2.5-pro,Gemini 2.5 Pro,output,0.01
+gemini-2.5-flash,Gemini 2.5 Flash,input,0.00015
+gemini-2.5-flash,Gemini 2.5 Flash,output,0.0006

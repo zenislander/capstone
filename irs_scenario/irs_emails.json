@@ -1,0 +1,142 @@
+[
+  {
+    "email_id": "EMAIL-IRS-001",
+    "intake_id": "R-05526",
+    "bureau": "IRS",
+    "doc_type": "email",
+    "kind": "intake_submission",
+    "stage": "01-Inquiry",
+    "date": "2026-05-01",
+    "sender": "angela.davis@irs.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov"
+    ],
+    "subject": "TCloud Services Request - IRS - Anthropic Claude Token Renewal",
+    "body": "Hi Renata,\n\nIRS is submitting a TCloud Services Request for a renewal of our Anthropic Claude token allocation. This is a renewal of R-01234, which is projected to reach 75% consumption within the next 60 days. The renewal request is for $10,000.00 in token spend for FY26 continuation. POC is myself, Angela Davis. Intake form is attached.\n\nPlease let me know next steps.\n\nThanks,\nAngela Davis\nIRS"
+  },
+  {
+    "email_id": "EMAIL-IRS-002",
+    "intake_id": "R-05526",
+    "bureau": "IRS",
+    "doc_type": "email",
+    "kind": "ticket_logged",
+    "stage": "01-Inquiry",
+    "date": "2026-05-01",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "angela.davis@irs.treasury.gov",
+      "diane.okafor@tcsc.treasury.gov"
+    ],
+    "subject": "RE: TCloud Services Request - IRS - R-05526 Logged",
+    "body": "Angela,\n\nThanks for the submission. I've logged this in ServiceNow as SNOW-21092, intake ID R-05526. This is noted as a renewal of R-01234. Routing to Diane Okafor for the proceed/no-proceed decision. Will follow up once we have a green light to move into Discovery.\n\nBest,\nRenata Cole\nIntake Analyst, TCSC"
+  },
+  {
+    "email_id": "EMAIL-IRS-003",
+    "intake_id": "R-05526",
+    "bureau": "IRS",
+    "doc_type": "email",
+    "kind": "proceed_decision",
+    "stage": "01-Inquiry",
+    "date": "2026-05-02",
+    "sender": "diane.okafor@tcsc.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov"
+    ],
+    "subject": "RE: R-05526 - Proceed Decision",
+    "body": "Renata,\n\nReviewed IRS's renewal request (R-05526, $10,000.00 Anthropic Claude, renewal of R-01234). Straightforward renewal at a reduced scope -- approved to proceed to Discovery.\n\nDiane"
+  },
+  {
+    "email_id": "EMAIL-IRS-004",
+    "intake_id": "R-05526",
+    "bureau": "IRS",
+    "doc_type": "email",
+    "kind": "discovery_invite",
+    "stage": "02-Discovery",
+    "date": "2026-05-12",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "angela.davis@irs.treasury.gov",
+      "marcus.whitfield@tcsc.treasury.gov"
+    ],
+    "subject": "Discovery Call - R-05526 - IRS Anthropic Token Renewal",
+    "body": "Hi Angela, Marcus,\n\nPMO has approved R-05526 to proceed. Since this is a renewal of R-01234, discovery should be quick -- mainly confirming whether the use case, FISMA level, and hosting model have changed. Proposing Tuesday 10am ET. Does that work?\n\nRenata"
+  },
+  {
+    "email_id": "EMAIL-IRS-005",
+    "intake_id": "R-05526",
+    "bureau": "IRS",
+    "doc_type": "email",
+    "kind": "discovery_followup",
+    "stage": "02-Discovery",
+    "date": "2026-05-12",
+    "sender": "angela.davis@irs.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov",
+      "marcus.whitfield@tcsc.treasury.gov"
+    ],
+    "subject": "RE: Discovery Call - R-05526 - IRS Anthropic Token Renewal",
+    "body": "Tuesday 10am works. For context: no material changes from R-01234 -- same use case (document review), same FISMA Moderate level, same Managed hosting model. We're requesting a smaller amount this time ($10,000) because we expect the pilot to wind down by September 30th.\n\nAngela"
+  },
+  {
+    "email_id": "EMAIL-IRS-006",
+    "intake_id": "R-05526",
+    "bureau": "IRS",
+    "doc_type": "email",
+    "kind": "discovery_notes",
+    "stage": "02-Discovery",
+    "date": "2026-05-13",
+    "sender": "marcus.whitfield@tcsc.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov",
+      "angela.davis@irs.treasury.gov"
+    ],
+    "subject": "RE: Discovery Call - R-05526 - Notes",
+    "body": "Good call. No changes to use case or technical profile from R-01234 -- confirmed FISMA Moderate, Managed hosting, Anthropic Claude via Bedrock. Reduced scope ($10,000) is consistent with winding down the pilot by 9/30. FYIdea update is minimal. Renata, this should be enough to move into Estimation.\n\nMarcus"
+  },
+  {
+    "email_id": "EMAIL-IRS-007",
+    "intake_id": "R-05526",
+    "bureau": "IRS",
+    "doc_type": "email",
+    "kind": "rom_kickoff",
+    "stage": "03-Estimation",
+    "date": "2026-05-26",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "greg.sutherland@tcsc.treasury.gov",
+      "marcus.whitfield@tcsc.treasury.gov"
+    ],
+    "subject": "ROM Needed - R-05526 - IRS Anthropic Token Renewal",
+    "body": "Greg,\n\nNeed a ROM for R-05526: IRS, $10,000.00 in Anthropic Claude tokens via AWS Bedrock, renewal of R-01234, Managed hosting model. Same fee structure as the original -- inclusive of SAIC vendor handling fee. Marcus can confirm technical details. Targeting PPM submission within 2 weeks.\n\nRenata"
+  },
+  {
+    "email_id": "EMAIL-IRS-008",
+    "intake_id": "R-05526",
+    "bureau": "IRS",
+    "doc_type": "email",
+    "kind": "rom_clarification",
+    "stage": "03-Estimation",
+    "date": "2026-05-26",
+    "sender": "greg.sutherland@tcsc.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov"
+    ],
+    "subject": "RE: ROM Needed - R-05526",
+    "body": "Renata,\n\nOn it. Confirming: same 3.95% SAIC handling fee as R-01234, and TCloud PMO fee applied separately at CEBD stage? Just want to make sure the ROM is consistent with how we handled the original.\n\nGreg"
+  },
+  {
+    "email_id": "EMAIL-IRS-009",
+    "intake_id": "R-05526",
+    "bureau": "IRS",
+    "doc_type": "email",
+    "kind": "rom_clarification_reply",
+    "stage": "03-Estimation",
+    "date": "2026-05-27",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "greg.sutherland@tcsc.treasury.gov"
+    ],
+    "subject": "RE: ROM Needed - R-05526",
+    "body": "Correct -- same structure as R-01234. Base $10,000.00, plus 3.95% SAIC handling fee, then TCloud PMO fee (5%) applied separately at CEBD stage. ROM is still in progress -- let me know once you have a number so I can prepare the PPM package.\n\nRenata"
+  }
+]

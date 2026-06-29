@@ -1,0 +1,251 @@
+[
+  {
+    "email_id": "EMAIL-BEP-001",
+    "intake_id": "R-07788",
+    "bureau": "BEP",
+    "doc_type": "email",
+    "kind": "intake_submission",
+    "stage": "01-Inquiry",
+    "date": "2026-04-15",
+    "sender": "kimberly.freed@bep.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov"
+    ],
+    "subject": "TCloud Services Request - BEP - Anthropic Claude Token Renewal",
+    "body": "Hi Renata,\n\nBEP is submitting a TCloud Services Request for a renewal of our Anthropic Claude token allocation via AWS Bedrock. This is a renewal of R-07765, which is currently at 77% consumption and projected to be fully consumed before 9/30. The renewal request is for $5,000.00 in token spend for FY26 continuation. POC is myself, Kimberly Freed. Intake form is attached.\n\nPlease let me know next steps.\n\nThanks,\nKimberly Freed\nBEP"
+  },
+  {
+    "email_id": "EMAIL-BEP-002",
+    "intake_id": "R-07788",
+    "bureau": "BEP",
+    "doc_type": "email",
+    "kind": "ticket_logged",
+    "stage": "01-Inquiry",
+    "date": "2026-04-15",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "kimberly.freed@bep.treasury.gov",
+      "diane.okafor@tcsc.treasury.gov"
+    ],
+    "subject": "RE: TCloud Services Request - BEP - R-07788 Logged",
+    "body": "Kimberly,\n\nThanks for the submission. I've logged this in ServiceNow as SNOW-21093, intake ID R-07788. This is noted as a renewal of R-07765. Routing to Diane Okafor for the proceed/no-proceed decision. Will follow up once we have a green light to move into Discovery.\n\nBest,\nRenata Cole\nIntake Analyst, TCSC"
+  },
+  {
+    "email_id": "EMAIL-BEP-003",
+    "intake_id": "R-07788",
+    "bureau": "BEP",
+    "doc_type": "email",
+    "kind": "proceed_decision",
+    "stage": "01-Inquiry",
+    "date": "2026-04-16",
+    "sender": "diane.okafor@tcsc.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov"
+    ],
+    "subject": "RE: R-07788 - Proceed Decision",
+    "body": "Renata,\n\nReviewed BEP's renewal request (R-07788, $5,000.00 Anthropic Claude via Bedrock, renewal of R-07765). Reduced scope renewal -- given the 77% consumption flag on the original, it's appropriate to move quickly. Approved to proceed to Discovery.\n\nDiane"
+  },
+  {
+    "email_id": "EMAIL-BEP-004",
+    "intake_id": "R-07788",
+    "bureau": "BEP",
+    "doc_type": "email",
+    "kind": "discovery_invite",
+    "stage": "02-Discovery",
+    "date": "2026-04-22",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "kimberly.freed@bep.treasury.gov",
+      "marcus.whitfield@tcsc.treasury.gov"
+    ],
+    "subject": "Discovery Call - R-07788 - BEP Anthropic Token Renewal",
+    "body": "Hi Kimberly, Marcus,\n\nPMO has approved R-07788 to proceed. Since this is a renewal of R-07765, discovery should be brief -- mainly confirming use case, FISMA level, and hosting model haven't changed. Proposing Wednesday 2pm ET. Does that work?\n\nRenata"
+  },
+  {
+    "email_id": "EMAIL-BEP-005",
+    "intake_id": "R-07788",
+    "bureau": "BEP",
+    "doc_type": "email",
+    "kind": "discovery_followup",
+    "stage": "02-Discovery",
+    "date": "2026-04-22",
+    "sender": "kimberly.freed@bep.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov",
+      "marcus.whitfield@tcsc.treasury.gov"
+    ],
+    "subject": "RE: Discovery Call - R-07788 - BEP Anthropic Token Renewal",
+    "body": "Wednesday 2pm works. No changes from R-07765 -- same use case (currency design workflow automation), FISMA Moderate, Managed hosting. We're requesting a smaller amount ($5,000) to cover the remaining FY26 workload through September 30th.\n\nKimberly"
+  },
+  {
+    "email_id": "EMAIL-BEP-006",
+    "intake_id": "R-07788",
+    "bureau": "BEP",
+    "doc_type": "email",
+    "kind": "discovery_notes",
+    "stage": "02-Discovery",
+    "date": "2026-04-23",
+    "sender": "marcus.whitfield@tcsc.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov",
+      "kimberly.freed@bep.treasury.gov"
+    ],
+    "subject": "RE: Discovery Call - R-07788 - Notes",
+    "body": "Good call. No changes to use case or technical profile from R-07765 -- confirmed FISMA Moderate, Managed hosting, Anthropic Claude via Bedrock. Reduced scope ($5,000) covers remaining FY26 runway. FYIdea update is minimal. Renata, ready to move into Estimation.\n\nMarcus"
+  },
+  {
+    "email_id": "EMAIL-BEP-007",
+    "intake_id": "R-07788",
+    "bureau": "BEP",
+    "doc_type": "email",
+    "kind": "rom_kickoff",
+    "stage": "03-Estimation",
+    "date": "2026-05-05",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "greg.sutherland@tcsc.treasury.gov",
+      "marcus.whitfield@tcsc.treasury.gov"
+    ],
+    "subject": "ROM Needed - R-07788 - BEP Anthropic Token Renewal",
+    "body": "Greg,\n\nNeed a ROM for R-07788: BEP, $5,000.00 in Anthropic Claude tokens via AWS Bedrock, renewal of R-07765, Managed hosting model. Same fee structure as the original -- inclusive of SAIC vendor handling fee. Targeting PPM submission within 2 weeks.\n\nRenata"
+  },
+  {
+    "email_id": "EMAIL-BEP-008",
+    "intake_id": "R-07788",
+    "bureau": "BEP",
+    "doc_type": "email",
+    "kind": "rom_clarification",
+    "stage": "03-Estimation",
+    "date": "2026-05-05",
+    "sender": "greg.sutherland@tcsc.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov"
+    ],
+    "subject": "RE: ROM Needed - R-07788",
+    "body": "Renata,\n\nOn it. Confirming same 3.95% SAIC handling fee as R-07765, TCloud PMO fee (5%) applied separately at CEBD stage?\n\nGreg"
+  },
+  {
+    "email_id": "EMAIL-BEP-009",
+    "intake_id": "R-07788",
+    "bureau": "BEP",
+    "doc_type": "email",
+    "kind": "rom_clarification_reply",
+    "stage": "03-Estimation",
+    "date": "2026-05-06",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "greg.sutherland@tcsc.treasury.gov"
+    ],
+    "subject": "RE: ROM Needed - R-07788",
+    "body": "Correct -- same structure as R-07765. Base $5,000.00, plus 3.95% SAIC handling fee, then TCloud PMO fee (5%) applied separately at CEBD stage.\n\nRenata"
+  },
+  {
+    "email_id": "EMAIL-BEP-010",
+    "intake_id": "R-07788",
+    "bureau": "BEP",
+    "doc_type": "email",
+    "kind": "rom_delivered",
+    "stage": "03-Estimation",
+    "date": "2026-05-07",
+    "sender": "greg.sutherland@tcsc.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov",
+      "diane.okafor@tcsc.treasury.gov"
+    ],
+    "subject": "ROM Complete - R-07788",
+    "body": "ROM is complete. Base token cost $5,000.00, plus SAIC handling fee (3.95%) bringing the estimate to $5,197.50. TCloud PMO fee to be applied separately at CEBD stage. Ready for PPM packaging.\n\nGreg"
+  },
+  {
+    "email_id": "EMAIL-BEP-011",
+    "intake_id": "R-07788",
+    "bureau": "BEP",
+    "doc_type": "email",
+    "kind": "ppm_submitted",
+    "stage": "03-Estimation",
+    "date": "2026-05-07",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "diane.okafor@tcsc.treasury.gov"
+    ],
+    "subject": "PPM Package Submitted - R-07788",
+    "body": "Diane,\n\nPPM package for R-07788 (BEP, Anthropic Claude via Bedrock, ROM $5,197.50) is submitted for QA review. Marcus's FYIdea and discovery notes are attached as supporting docs.\n\nRenata"
+  },
+  {
+    "email_id": "EMAIL-BEP-012",
+    "intake_id": "R-07788",
+    "bureau": "BEP",
+    "doc_type": "email",
+    "kind": "qa_feedback",
+    "stage": "04-QA",
+    "date": "2026-05-19",
+    "sender": "diane.okafor@tcsc.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov"
+    ],
+    "subject": "RE: PPM Package - R-07788 - Feedback",
+    "body": "Renata,\n\nReviewed the PPM package. Please break out the SAIC handling fee and TCloud PMO fee as separate line items in the cost summary -- same transparency requirement as the BFS package. Otherwise looks good.\n\nDiane"
+  },
+  {
+    "email_id": "EMAIL-BEP-013",
+    "intake_id": "R-07788",
+    "bureau": "BEP",
+    "doc_type": "email",
+    "kind": "qa_feedback_incorporated",
+    "stage": "04-QA",
+    "date": "2026-05-20",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "diane.okafor@tcsc.treasury.gov"
+    ],
+    "subject": "RE: PPM Package - R-07788 - Feedback Incorporated",
+    "body": "Diane,\n\nUpdated the cost summary to show base cost ($5,000.00), SAIC handling fee ($197.50), and TCloud PMO fee (5%) as separate line items. Re-attaching the revised package and adding to the next PPM agenda.\n\nRenata"
+  },
+  {
+    "email_id": "EMAIL-BEP-014",
+    "intake_id": "R-07788",
+    "bureau": "BEP",
+    "doc_type": "email",
+    "kind": "ppm_agenda_confirmed",
+    "stage": "04-QA",
+    "date": "2026-05-21",
+    "sender": "diane.okafor@tcsc.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov",
+      "patricia.nguyen@treasury.gov"
+    ],
+    "subject": "RE: PPM Package - R-07788 - On Agenda",
+    "body": "Confirmed, R-07788 is on next week's PPM agenda for Executive Approval. Patricia, flagging for your review -- straightforward Bedrock renewal for BEP at reduced scope, similar profile to R-07765 from earlier this year.\n\nDiane"
+  },
+  {
+    "email_id": "EMAIL-BEP-015",
+    "intake_id": "R-07788",
+    "bureau": "BEP",
+    "doc_type": "email",
+    "kind": "exec_presentation",
+    "stage": "05-ExecApproval",
+    "date": "2026-06-02",
+    "sender": "marcus.whitfield@tcsc.treasury.gov",
+    "recipients": [
+      "patricia.nguyen@treasury.gov"
+    ],
+    "subject": "PPM Presentation - R-07788 - BEP Anthropic Token Renewal",
+    "body": "Patricia,\n\nPresenting R-07788 at today's PPM session. Quick summary: BEP, currency design workflow automation, Anthropic Claude via AWS Bedrock, base cost $5,000.00, total estimate with SAIC fee $5,197.50 pre-PMO-fee. Renewal of R-07765. Happy to answer questions beforehand if useful.\n\nMarcus"
+  },
+  {
+    "email_id": "EMAIL-BEP-016",
+    "intake_id": "R-07788",
+    "bureau": "BEP",
+    "doc_type": "email",
+    "kind": "exec_approval_granted",
+    "stage": "05-ExecApproval",
+    "date": "2026-06-03",
+    "sender": "patricia.nguyen@treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov",
+      "diane.okafor@tcsc.treasury.gov",
+      "marcus.whitfield@tcsc.treasury.gov"
+    ],
+    "subject": "RE: PPM Presentation - R-07788 - Approved",
+    "body": "Approved. R-07788 is cleared for Customer Estimate Review. Small renewal but important to keep BEP's workflow running through 9/30. Good work moving this quickly given the 77% consumption flag on R-07765.\n\nPatricia Nguyen\nACIO"
+  }
+]

@@ -1,0 +1,360 @@
+[
+  {
+    "email_id": "EMAIL-BFS-001",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "intake_submission",
+    "stage": "01-Inquiry",
+    "date": "2026-04-01",
+    "sender": "alisha.squires@bfs.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov"
+    ],
+    "subject": "TCloud Services Request - BFS - Anthropic Claude Token Renewal",
+    "body": "Hi Renata,\n\nBFS is submitting a TCloud Services Request for a renewal of our Anthropic Claude token allocation via AWS Bedrock. This is a renewal of R-04321, which is currently at 80% consumption and projected to be fully consumed within the next 45 days. The renewal request is for $50,000.00 in token spend for FY26 continuation, same amount as the original. POC is myself, Alisha Squires. Intake form is attached.\n\nPlease let me know next steps.\n\nThanks,\nAlisha Squires\nBFS"
+  },
+  {
+    "email_id": "EMAIL-BFS-002",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "ticket_logged",
+    "stage": "01-Inquiry",
+    "date": "2026-04-01",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "alisha.squires@bfs.treasury.gov",
+      "diane.okafor@tcsc.treasury.gov"
+    ],
+    "subject": "RE: TCloud Services Request - BFS - R-05642 Logged",
+    "body": "Alisha,\n\nThanks for the submission. I've logged this in ServiceNow as SNOW-21094, intake ID R-05642. This is noted as a renewal of R-04321 at the same dollar amount ($50,000.00). Routing to Diane Okafor for the proceed/no-proceed decision. Will follow up once we have a green light to move into Discovery.\n\nBest,\nRenata Cole\nIntake Analyst, TCSC"
+  },
+  {
+    "email_id": "EMAIL-BFS-003",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "proceed_decision",
+    "stage": "01-Inquiry",
+    "date": "2026-04-02",
+    "sender": "diane.okafor@tcsc.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov"
+    ],
+    "subject": "RE: R-05642 - Proceed Decision",
+    "body": "Renata,\n\nReviewed BFS's renewal request (R-05642, $50,000.00 Anthropic Claude via Bedrock, renewal of R-04321). Same scope and dollar amount as original -- given the 80% consumption flag, approved to proceed to Discovery expeditiously.\n\nDiane"
+  },
+  {
+    "email_id": "EMAIL-BFS-004",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "discovery_invite",
+    "stage": "02-Discovery",
+    "date": "2026-04-08",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "alisha.squires@bfs.treasury.gov",
+      "marcus.whitfield@tcsc.treasury.gov"
+    ],
+    "subject": "Discovery Call - R-05642 - BFS Anthropic Token Renewal",
+    "body": "Hi Alisha, Marcus,\n\nPMO has approved R-05642 to proceed. Since this is a same-scope renewal of R-04321, discovery should be brief -- mainly confirming use case, FISMA level, and hosting model are unchanged. Proposing Thursday 1pm ET. Does that work?\n\nRenata"
+  },
+  {
+    "email_id": "EMAIL-BFS-005",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "discovery_followup",
+    "stage": "02-Discovery",
+    "date": "2026-04-08",
+    "sender": "alisha.squires@bfs.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov",
+      "marcus.whitfield@tcsc.treasury.gov"
+    ],
+    "subject": "RE: Discovery Call - R-05642 - BFS Anthropic Token Renewal",
+    "body": "Thursday 1pm works. No changes from R-04321 -- same use case (document classification pilot), FISMA Moderate, Managed hosting. We're renewing at the same $50,000 amount because the pilot is continuing into FY27 and usage patterns have been consistent.\n\nAlisha"
+  },
+  {
+    "email_id": "EMAIL-BFS-006",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "discovery_notes",
+    "stage": "02-Discovery",
+    "date": "2026-04-09",
+    "sender": "marcus.whitfield@tcsc.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov",
+      "alisha.squires@bfs.treasury.gov"
+    ],
+    "subject": "RE: Discovery Call - R-05642 - Notes",
+    "body": "Good call. No changes to use case or technical profile from R-04321 -- confirmed FISMA Moderate, Managed hosting, Anthropic Claude via Bedrock. Same $50,000 scope, pilot continuing into FY27. FYIdea update is minimal. Renata, ready to move into Estimation.\n\nMarcus"
+  },
+  {
+    "email_id": "EMAIL-BFS-007",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "rom_kickoff",
+    "stage": "03-Estimation",
+    "date": "2026-04-20",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "greg.sutherland@tcsc.treasury.gov",
+      "marcus.whitfield@tcsc.treasury.gov"
+    ],
+    "subject": "ROM Needed - R-05642 - BFS Anthropic Token Renewal",
+    "body": "Greg,\n\nNeed a ROM for R-05642: BFS, $50,000.00 in Anthropic Claude tokens via AWS Bedrock, renewal of R-04321, Managed hosting model. Same fee structure as the original -- inclusive of SAIC vendor handling fee. Targeting PPM submission within 2 weeks.\n\nRenata"
+  },
+  {
+    "email_id": "EMAIL-BFS-008",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "rom_clarification",
+    "stage": "03-Estimation",
+    "date": "2026-04-20",
+    "sender": "greg.sutherland@tcsc.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov"
+    ],
+    "subject": "RE: ROM Needed - R-05642",
+    "body": "Renata,\n\nOn it. Confirming same 3.95% SAIC handling fee as R-04321, and TCloud PMO fee (5%) applied separately at CEBD stage?\n\nGreg"
+  },
+  {
+    "email_id": "EMAIL-BFS-009",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "rom_clarification_reply",
+    "stage": "03-Estimation",
+    "date": "2026-04-21",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "greg.sutherland@tcsc.treasury.gov"
+    ],
+    "subject": "RE: ROM Needed - R-05642",
+    "body": "Correct -- same structure as R-04321. Base $50,000.00, plus 3.95% SAIC handling fee, then TCloud PMO fee (5%) applied separately at CEBD stage.\n\nRenata"
+  },
+  {
+    "email_id": "EMAIL-BFS-010",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "rom_delivered",
+    "stage": "03-Estimation",
+    "date": "2026-04-22",
+    "sender": "greg.sutherland@tcsc.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov",
+      "diane.okafor@tcsc.treasury.gov"
+    ],
+    "subject": "ROM Complete - R-05642",
+    "body": "ROM is complete. Base token cost $50,000.00, plus SAIC handling fee (3.95%) bringing the estimate to $51,975.00. TCloud PMO fee to be applied separately at CEBD stage. Ready for PPM packaging.\n\nGreg"
+  },
+  {
+    "email_id": "EMAIL-BFS-011",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "ppm_submitted",
+    "stage": "03-Estimation",
+    "date": "2026-04-22",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "diane.okafor@tcsc.treasury.gov"
+    ],
+    "subject": "PPM Package Submitted - R-05642",
+    "body": "Diane,\n\nPPM package for R-05642 (BFS, Anthropic Claude via Bedrock, ROM $51,975.00) is submitted for QA review. Marcus's FYIdea and discovery notes are attached as supporting docs.\n\nRenata"
+  },
+  {
+    "email_id": "EMAIL-BFS-012",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "qa_feedback",
+    "stage": "04-QA",
+    "date": "2026-05-05",
+    "sender": "diane.okafor@tcsc.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov"
+    ],
+    "subject": "RE: PPM Package - R-05642 - Feedback",
+    "body": "Renata,\n\nReviewed the PPM package. Please break out the SAIC handling fee and TCloud PMO fee as separate line items in the cost summary -- same transparency requirement as previous packages. Otherwise looks solid.\n\nDiane"
+  },
+  {
+    "email_id": "EMAIL-BFS-013",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "qa_feedback_incorporated",
+    "stage": "04-QA",
+    "date": "2026-05-06",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "diane.okafor@tcsc.treasury.gov"
+    ],
+    "subject": "RE: PPM Package - R-05642 - Feedback Incorporated",
+    "body": "Diane,\n\nUpdated the cost summary to show base cost ($50,000.00), SAIC handling fee ($1,975.00), and TCloud PMO fee (5%) as separate line items. Re-attaching the revised package and adding to the next PPM agenda.\n\nRenata"
+  },
+  {
+    "email_id": "EMAIL-BFS-014",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "ppm_agenda_confirmed",
+    "stage": "04-QA",
+    "date": "2026-05-07",
+    "sender": "diane.okafor@tcsc.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov",
+      "patricia.nguyen@treasury.gov"
+    ],
+    "subject": "RE: PPM Package - R-05642 - On Agenda",
+    "body": "Confirmed, R-05642 is on next week's PPM agenda for Executive Approval. Patricia, flagging for your review -- same-scope BFS renewal at $50,000, straightforward Bedrock token request, similar profile to R-04321.\n\nDiane"
+  },
+  {
+    "email_id": "EMAIL-BFS-015",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "exec_presentation",
+    "stage": "05-ExecApproval",
+    "date": "2026-05-19",
+    "sender": "marcus.whitfield@tcsc.treasury.gov",
+    "recipients": [
+      "patricia.nguyen@treasury.gov"
+    ],
+    "subject": "PPM Presentation - R-05642 - BFS Anthropic Token Renewal",
+    "body": "Patricia,\n\nPresenting R-05642 at today's PPM session. Quick summary: BFS, document classification pilot continuing into FY27, Anthropic Claude via AWS Bedrock, base cost $50,000.00, total estimate with SAIC fee $51,975.00 pre-PMO-fee. Same-scope renewal of R-04321. Happy to answer questions beforehand if useful.\n\nMarcus"
+  },
+  {
+    "email_id": "EMAIL-BFS-016",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "exec_approval_granted",
+    "stage": "05-ExecApproval",
+    "date": "2026-05-20",
+    "sender": "patricia.nguyen@treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov",
+      "diane.okafor@tcsc.treasury.gov",
+      "marcus.whitfield@tcsc.treasury.gov"
+    ],
+    "subject": "RE: PPM Presentation - R-05642 - Approved",
+    "body": "Approved. R-05642 is cleared for Customer Estimate Review. Consistent usage and same scope -- straightforward renewal. Good work keeping this moving given the 80% consumption flag on R-04321.\n\nPatricia Nguyen\nACIO"
+  },
+  {
+    "email_id": "EMAIL-BFS-017",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "review_scheduling",
+    "stage": "06-CustEstimateReview",
+    "date": "2026-05-26",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "alisha.squires@bfs.treasury.gov",
+      "marcus.whitfield@tcsc.treasury.gov"
+    ],
+    "subject": "Cost Review Scheduling - R-05642",
+    "body": "Alisha,\n\nExecutive Approval came through for R-05642. Per process, we need to schedule a cost element review within 5 business days. Are you available Thursday or Friday this week?\n\nRenata"
+  },
+  {
+    "email_id": "EMAIL-BFS-018",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "review_confirmed",
+    "stage": "06-CustEstimateReview",
+    "date": "2026-05-26",
+    "sender": "alisha.squires@bfs.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov",
+      "marcus.whitfield@tcsc.treasury.gov"
+    ],
+    "subject": "RE: Cost Review Scheduling - R-05642",
+    "body": "Friday works. Can you walk me through the final cost breakdown before the call? Finance will want the full picture before I give verbal concurrence.\n\nAlisha"
+  },
+  {
+    "email_id": "EMAIL-BFS-019",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "cost_breakdown_explained",
+    "stage": "06-CustEstimateReview",
+    "date": "2026-05-27",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "alisha.squires@bfs.treasury.gov"
+    ],
+    "subject": "RE: Cost Review Scheduling - R-05642 - Cost Breakdown",
+    "body": "Of course. Breakdown: base token cost $50,000.00, plus SAIC vendor handling fee (3.95%) bringing it to $51,975.00, plus standard 5% TCloud PMO fee on top, for a final total of $54,573.75. We'll walk through this in detail Friday and you'll have a chance to ask questions before the CEBD is drafted.\n\nRenata"
+  },
+  {
+    "email_id": "EMAIL-BFS-020",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "verbal_concurrence",
+    "stage": "06-CustEstimateReview",
+    "date": "2026-05-29",
+    "sender": "alisha.squires@bfs.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov",
+      "marcus.whitfield@tcsc.treasury.gov"
+    ],
+    "subject": "RE: Cost Review - R-05642 - Concurrence",
+    "body": "Thanks for walking through that Friday. BFS is good with $54,573.75 as the final number -- you can move forward with the CEBD.\n\nAlisha"
+  },
+  {
+    "email_id": "EMAIL-BFS-021",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "cebd_drafted",
+    "stage": "07-CustEstimateApproval",
+    "date": "2026-06-09",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "marcus.whitfield@tcsc.treasury.gov",
+      "howard.liu@tcsc.treasury.gov"
+    ],
+    "subject": "CEBD Drafted - R-05642 - Ready for Review",
+    "body": "Howard, Marcus,\n\nCEBD for R-05642 is drafted: final amount $54,573.75, Anthropic Claude tokens via AWS Bedrock, Managed hosting model, FY27. Requesting Program SME + Intake Director review before this goes out to Alisha for signature.\n\nRenata"
+  },
+  {
+    "email_id": "EMAIL-BFS-022",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "cebd_review_complete",
+    "stage": "07-CustEstimateApproval",
+    "date": "2026-06-10",
+    "sender": "howard.liu@tcsc.treasury.gov",
+    "recipients": [
+      "renata.cole@tcsc.treasury.gov"
+    ],
+    "subject": "RE: CEBD Drafted - R-05642 - Reviewed",
+    "body": "Reviewed and looks good -- cost agreement section, terms of service, and the 75%-consumption notification clause are all standard. Cleared to send to Alisha for signature.\n\nHoward Liu\nIntake Director"
+  },
+  {
+    "email_id": "EMAIL-BFS-023",
+    "intake_id": "R-05642",
+    "bureau": "BFS",
+    "doc_type": "email",
+    "kind": "cebd_sent_to_customer",
+    "stage": "07-CustEstimateApproval",
+    "date": "2026-06-10",
+    "sender": "renata.cole@tcsc.treasury.gov",
+    "recipients": [
+      "alisha.squires@bfs.treasury.gov"
+    ],
+    "subject": "CEBD for Signature - R-05642 - BFS Anthropic Token Renewal",
+    "body": "Alisha,\n\nCEBD is attached for R-05642, final amount $54,573.75. A few things to note before signing: this is a non-refundable up-front commitment, cancellation requires 1 year written notice, and renewal is automatic unless you notify us otherwise. Please notify us once consumption hits 75% of the pre-funded amount so we can initiate the next renewal before you run out. Let me know if you have questions before signing.\n\nRenata"
+  }
+]

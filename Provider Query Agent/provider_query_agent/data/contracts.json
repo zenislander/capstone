@@ -1,0 +1,7 @@
+[
+  {"bureau": "IRS", "request_id": "R-01234", "contract_value_usd": 100000, "contract_start_date": "2026-02-14"},
+  {"bureau": "BFS", "request_id": "R-04321", "contract_value_usd": 50000, "contract_start_date": "2026-03-28"},
+  {"bureau": "BEP", "request_id": "R-07765", "contract_value_usd": 50000, "contract_start_date": "2026-04-11"},
+  {"bureau": "OCC", "request_id": "R-09988", "contract_value_usd": 50000, "contract_start_date": "2026-01-22"},
+  {"bureau": "US Mint", "request_id": "R-03311", "contract_value_usd": 60000, "contract_start_date": "2026-02-01", "note": "placeholder start date - no signed CEBD provided for US Mint"}
+]
