@@ -1,14 +1,14 @@
 # Bureau LLM Token Intake Monitor
 
-A multi-agent RAG system for the U.S. Treasury Department's TCloud program that monitors LLM token contract consumption across bureaus, tracks active renewal requests in the intake pipeline, and surfaces contract risk via a Claude-powered gap analysis — all rendered in a Rich terminal dashboard.
+A multi-agent RAG system for a Federal Agency that monitors LLM token contract consumption across bureaus, tracks active renewal requests in the intake pipeline, and surfaces contract risk via a Claude-powered gap analysis — all rendered in a Rich terminal dashboard.
 
-Built as a capstone project for the Treasury TCloud LLM Token Intake system.
+Built as a capstone project for the Agency LLM Token Intake system.
 
 ---
 
 ## What the system does
 
-Six Treasury bureaus (IRS, BFS, BEP, OCC, US Mint, TIGTA) procure LLM API tokens under fixed-dollar contracts. This system answers two questions at every run:
+Six bureaus procure LLM API tokens under fixed-dollar contracts. This system answers two questions at every run:
 
 1. **How much of each bureau's contract has been consumed?** — by joining live cloud provider spend (AWS Bedrock + GCP Vertex AI) against signed contract values retrieved from a RAG vector store.
 2. **Is a renewal on track to arrive before the contract runs out?** — by querying the intake pipeline for active renewal requests and their current stage.
