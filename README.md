@@ -1,147 +1,259 @@
-# Bureau LLM-Token-Intake RAG Prototype
+# Bureau LLM Token Intake Monitor
 
-A working implementation of the retrieval architecture described in
-*Capstone Submission 3.1 — Retrieval-Augmented Design*: a vector-backed
-retrieval layer over email, ServiceNow tickets, procurement documents
-(CEBDs/vendor quotes), and policy text, supporting an agent that tracks
-LLM token requests/allocations per Treasury Bureau.
+A multi-agent RAG system for the U.S. Treasury Department's TCloud program that monitors LLM token contract consumption across bureaus, tracks active renewal requests in the intake pipeline, and surfaces contract risk via a Claude-powered gap analysis — all rendered in a Rich terminal dashboard.
 
-## What "token utilization per agency" means in this system
+Built as a capstone project for the Treasury TCloud LLM Token Intake system.
 
-Not LLM API billing/cost telemetry — **Bureau-level token *allocation
-requests*** moving through an intake/approval pipeline (ServiceNow ticket →
-technical review → cost estimate → CEBD → approval → provisioning), each
-tagged with Bureau, token type/vendor (Anthropic Claude, AWS Bedrock,
-OpenAI GPT-4o, Azure OpenAI), and token amount.
+---
+
+## What the system does
+
+Six Treasury bureaus (IRS, BFS, BEP, OCC, US Mint, TIGTA) procure LLM API tokens under fixed-dollar contracts. This system answers two questions at every run:
+
+1. **How much of each bureau's contract has been consumed?** — by joining live cloud provider spend (AWS Bedrock + GCP Vertex AI) against signed contract values retrieved from a RAG vector store.
+2. **Is a renewal on track to arrive before the contract runs out?** — by querying the intake pipeline for active renewal requests and their current stage.
+
+The gap analysis agent (Claude `claude-sonnet-4-6`) interprets both signals together and assigns a risk status to every bureau.
+
+---
 
 ## Architecture
 
 ```
-data_generator.py          Synthetic emails, tickets, documents, policy
-        |
-        v
-ingestion/loaders.py       Type-specific chunking:
-                              - email: 1 chunk/message (atomic)
-                              - ticket: 1 chunk/ticket (stage history)
-                              - documents: split by section
-                              - policy: split by numbered clause
-                              ~400 token cap enforced as a safety net
-        |
-        v
-extraction/structured.py   Structured field extraction (Requester, Bureau,
-                            Token Type, Amount, Model Spec, Vendor) into:
-                              - a Pydantic-validated table (precise aggregation)
-                              - a vector-store chunk (per the design doc)
-        |
-        v
-embeddings.py               Swappable embedding backend (see below)
-        |
-        v
-retrieval/store.py          Chroma vector store + retrieval functions:
-                              - top-k default (5), metadata-filterable
-                              - intake-scoped tightening (k=3)
-                              - superseded-document exclusion (default on)
-                              - direct active-version lookup (bypasses
-                                semantic search for exact metadata lookups)
-        |
-        v
-retrieval/dashboard.py       Simulated "agent writes structured intake ->
-                              dashboard reads aggregated totals" data flow
-        |
-        v
-main.py                      CLI: build / demo / query / aggregate
+Provider Query Agent
+  ├── aws_query_tool.py       Reads AWS Bedrock mock invocation log
+  └── gcp_query_tool.py       Reads GCP Vertex AI mock invocation log
+          │
+          ▼
+  provider_query_output.json  Per-bureau spend totals + failed_sources flag
+          │
+          ▼
+Aggregator Agent
+  ├── RAG vector store         Chroma + HuggingFace all-MiniLM-L6-v2 (384-dim)
+  │     ├── emails             Scenario + synthetic email threads
+  │     ├── tickets            ServiceNow stage histories
+  │     ├── documents          CEBDs, vendor quotes (with superseded-doc handling)
+  │     ├── policy             Numbered-clause policy corpus
+  │     └── structured intakes Intake records with bureau, stage, renewal_of metadata
+  ├── Signed CEBD lookup       Per-bureau contract value via RAG metadata filter
+  ├── Intake pipeline query    Scenario-tagged, non-provisioned intakes per bureau
+  └── Threshold + quality      75% threshold, 3-state reliability model
+          │
+          ▼
+  aggregator_output.json      usage_monitor + intake_pipeline + failed_data_sources
+          │
+          ▼
+Gap Analysis Agent
+  └── Claude API (claude-sonnet-4-6)
+        Assigns: action_required | monitor | on_track | data_gap
+          │
+          ▼
+  gap_analysis.json
+          │
+          ▼
+Rich Terminal Dashboard
+  ├── Header                  Timestamp · overall quality · error count
+  ├── Data Source Warning      Red banner when a provider tool has failed
+  ├── Usage Monitor           Bureau · contract · spend · % consumed · threshold
+  ├── Intake Pipeline         Bureau · request · stage · renewal linkage
+  └── Gap Analysis            Color-coded risk panels with Claude narrative
 ```
+
+---
 
 ## Setup
 
 ```bash
 python -m venv venv
-venv\Scripts\activate          # Windows
-# source venv/bin/activate     # macOS/Linux
+venv\Scripts\activate        # Windows
+# source venv/bin/activate   # macOS / Linux
 pip install -r requirements.txt
 ```
 
+Copy `.env.example` to `.env` and add your Anthropic API key:
+
 ```bash
-python main.py build     # generate data, chunk, embed, build vector store
-python main.py demo      # run all 8 demo queries from the design doc
-python main.py aggregate # precise Bureau x Token Type table
-python main.py query "what issues has IRS raised?" --bureau IRS
+cp .env.example .env
+# then edit .env:
+ANTHROPIC_API_KEY=sk-ant-api03-...
 ```
 
-## Embedding backend: Option A vs Option B
+---
 
-This was built and tested in a network-sandboxed environment with no
-access to `huggingface.co`, so it ships with **two interchangeable
-backends** behind a single `Embeddings` interface (`embeddings.py`):
+## Running the system
 
-| | Option B (default here) | Option A (use on your machine) |
-|---|---|---|
-| Backend | TF-IDF + SVD (scikit-learn) | `sentence-transformers/all-MiniLM-L6-v2` |
-| Matching | Lexical (keyword/n-gram overlap) | Semantic (meaning-based) |
-| Setup | None, works offline immediately | One-time ~80MB download from huggingface.co |
-| Quality | Fine for this synthetic corpus's vocabulary; will NOT recognize paraphrases ("token quota" vs "token allocation") | Recognizes semantic similarity even across different wording |
+### Build — generate synthetic data and construct the vector store
 
-**To switch to Option A on Windows**, either:
 ```bash
-set EMBEDDING_BACKEND=huggingface     # Windows cmd
-$env:EMBEDDING_BACKEND="huggingface"  # PowerShell
+python main.py build
 ```
-or edit the default in `embeddings.py`:
+
+Generates synthetic emails, tickets, documents, and policy; merges all scenario intakes (BFS R-05642, IRS R-05526, BEP R-07788, plus pipeline intakes R-05522 and R-02233); chunks and embeds everything into a persistent Chroma vector store.
+
+### Run — execute the full agent pipeline and render the dashboard
+
+```bash
+python main.py run
+```
+
+Runs all four stages in sequence:
+1. Provider Query Agent — fetches AWS + GCP spend
+2. Aggregator Agent — RAG join, threshold computation, pipeline query
+3. Gap Analysis Agent — Claude API risk assessment
+4. Dashboard render — prints the full Rich terminal output
+
+### Query — ad hoc retrieval against the live vector store
+
+```bash
+python main.py query "BFS renewal CEBD customer estimate" --bureau BFS
+python main.py query "show me all IRS emails" --bureau IRS --doc-type email
+python main.py query "active requests in the intake pipeline"
+```
+
+### Demo — run the fixed 8-query demonstration set
+
+```bash
+python main.py demo
+```
+
+Exercises: general semantic search, intake-scoped tightening, superseded-document exclusion, active-version direct lookup, bureau-filtered queries, dashboard push simulation, aggregation.
+
+### Aggregate — precise Bureau × Token Type table
+
+```bash
+python main.py aggregate
+```
+
+Pandas groupby over the structured intake table — not retrieval-based, guaranteed complete.
+
+---
+
+## Gap analysis risk statuses
+
+| Status | Meaning |
+|---|---|
+| `action_required` | ≥75% consumed AND no renewal, or renewal at an early stage (Inquiry → Customer estimate approval) |
+| `monitor` | ≥75% consumed AND renewal at Executive approval or later — likely to land before contract exhausts |
+| `on_track` | Below 75% threshold |
+| `data_gap` | Data quality is `incomplete` or `failed`, or no signed CEBD found — short-circuits threshold logic |
+
+Customer estimate approval is explicitly classified as too early to count as "nearly done" — funding prep, funding receipt, contracting, and execution still remain.
+
+---
+
+## Reliability model
+
+The aggregator uses a three-state data quality classification on every bureau row:
+
+| State | Cause |
+|---|---|
+| `success` | Provider data is fresh, signed CEBD found, join complete |
+| `incomplete` | A provider tool failed, or signed CEBD missing for this bureau |
+| `failed` | Provider output timestamp unchanged from previous run (stale data) |
+
+Every non-success state is simultaneously:
+- Logged to `output/aggregator_error_log.json`
+- Surfaced as an `anomalies[]` entry on the affected dashboard row
+- Sent as an admin email alert (stub — prints to console; replace with `smtplib` in production)
+
+---
+
+## Simulating a GCP tool failure
+
+Open `Provider Query Agent/provider_query_agent/tools/gcp_query_tool.py` and set:
+
 ```python
-BACKEND = os.environ.get("EMBEDDING_BACKEND", "huggingface")  # was "tfidf"
+SIMULATE_GCP_FAILURE = True
 ```
-Nothing else in the codebase changes — `retrieval/store.py`,
-`ingestion/loaders.py`, and `main.py` all call `get_embeddings()` and are
-indifferent to which backend answers. Delete `output/chroma_store` and
-`output/tfidf_embeddings.pkl` and re-run `python main.py build` after
-switching, since the two backends produce incompatible vector spaces.
 
-## Known limitations (read before extending)
+On the next `python main.py run`:
+- The GCP tool raises a `RuntimeError` (simulated IAM timeout)
+- The Provider Query Agent catches it, continues with AWS-only data, and sets `failed_sources: ["gcp"]`
+- The Aggregator downgrades all bureau rows to `incomplete` and fires an admin alert
+- The dashboard shows a red warning banner: **DATA SOURCE FAILURE DETECTED**
+- Spend figures are visibly understated; gap analysis classifies every bureau as `data_gap`
 
-1. **Structured field extraction is simulated, not live.** `extraction/structured.py`'s
-   `load_structured_intakes()` reads already-clean synthetic data instead of
-   running a real LLM extraction call against raw email text. The intended
-   call shape (`ChatAnthropic(...).with_structured_output(IntakeRecord)`) is
-   documented in that file's `extract_from_raw_intake()` stub but requires
-   an Anthropic API key to actually run.
+Revert to `SIMULATE_GCP_FAILURE = False` and re-run to confirm full recovery.
 
-2. **Retrieval-based aggregation does not reliably scale.** `retrieval/dashboard.py`'s
-   `refresh_bureau_summary()` demonstrates the doc's "agent queries vector
-   store, dashboard reads aggregated totals" flow, but top-k similarity
-   search has no completeness guarantee — it happens to match the precise
-   table in this prototype only because `k=20` exceeds every synthetic
-   Bureau's true intake count. At real scale, use
-   `extraction/structured.py`'s `aggregate_tokens_by_bureau()` (a real
-   pandas groupby over the structured table) to back any dashboard number
-   that needs to be correct, not retrieval.
+A similar toggle exists for synthetic email generation in `data_generator.py`:
 
-3. **TF-IDF (Option B) requires re-fitting on the full corpus before use**
-   and has a closed vocabulary — a query using a word never seen during
-   `fit()` is silently ignored for that term. This is a real limitation
-   of the lexical stand-in, not present in the pretrained semantic model
-   (Option A).
+```python
+SYNTHETIC_EMAILS_DISABLED = True   # scenario emails only
+SYNTHETIC_EMAILS_DISABLED = False  # restore full synthetic generation
+```
 
-4. **The 400-token chunk cap is approximated** as ~4 characters/token
-   (a common English-text heuristic) rather than a real tokenizer count,
-   since none of the installed packages run a tokenizer compatible with
-   every embedding backend. Close enough for chunking decisions; don't
-   rely on it for exact token budgeting against a model's context window.
+---
 
-5. **Dashboard push is a stub.** `retrieval/dashboard.py`'s `push_to_dashboard()`
-   logs the payload it would send rather than making a real API call —
-   there's no real dashboard backend in this prototype.
+## Intake pipeline stages
 
-## Files
+| Raw stage | Display name |
+|---|---|
+| Intake Received | Inquiry |
+| Technical Review | Discovery |
+| Cost Estimation | Estimation |
+| Approved | Executive approval |
+| CEBD Drafted | Customer estimate approval |
+| Provisioned | (excluded from pipeline view) |
+
+---
+
+## Scenario intakes
+
+Three bureaus have real email-thread scenarios (23–12 emails each) representing active renewal requests:
+
+| Bureau | Request | Renews | Amount | Stage |
+|---|---|---|---|---|
+| BFS | R-05642 | R-04321 | $50,000 | Customer estimate approval |
+| IRS | R-05526 | R-01234 | $10,000 | Cost Estimation |
+| BEP | R-07788 | R-07765 | $5,000 | Approved |
+
+Two additional non-renewal scenario intakes are also in the pipeline (IRS R-05522 at Technical Review, BFS R-02233 at Approved). OCC has no in-flight intake and shows "No request found."
+
+---
+
+## Project structure
 
 ```
-data_generator.py       Synthetic corpus generator
-embeddings.py           Swappable Embeddings backend (TF-IDF / HuggingFace)
-ingestion/loaders.py    Type-specific chunking -> LangChain Documents
-extraction/structured.py  Pydantic intake model, structured table, dashboard chunk
-retrieval/store.py      Chroma vector store + filtered retrieval functions
-retrieval/dashboard.py  Simulated dashboard push / aggregation data flow
-main.py                 CLI entry point
-requirements.txt        Pinned dependencies
-data/                   Generated synthetic JSON (created by `build`)
-output/chroma_store/    Persisted Chroma vector store (created by `build`)
+main.py                          CLI entry point (build / run / demo / query / aggregate)
+data_generator.py                Synthetic corpus generator (18 intakes, emails, tickets, docs, policy)
+embeddings.py                    HuggingFace embedding backend (all-MiniLM-L6-v2)
+
+Provider Query Agent/
+  provider_query_agent/
+    agents/provider_query_agent.py   Fan-out tool orchestration, failed_sources propagation
+    tools/aws_query_tool.py          AWS Bedrock mock log reader
+    tools/gcp_query_tool.py          GCP Vertex AI mock log reader + SIMULATE_GCP_FAILURE flag
+    data/                            Mock invocation logs, pricelists, contracts.json
+
+aggregator/aggregator_agent.py   RAG join, threshold, pipeline, reliability model
+gap_analysis/gap_analysis_agent.py  Claude API gap analysis
+dashboard/dashboard.py           Rich terminal dashboard renderer
+
+ingestion/loaders.py             Type-specific chunking → LangChain Documents
+extraction/structured.py         Pydantic intake model, structured table, vector chunk builder
+retrieval/store.py               Chroma vector store + filtered retrieval
+retrieval/dashboard.py           Simulated dashboard push / aggregation
+
+bfs_scenario/bfs_emails.json     23-email BFS thread (R-05642)
+irs_scenario/irs_emails.json     IRS renewal thread (R-05526)
+bep_scenario/bep_emails.json     BEP renewal thread (R-07788)
+
+merge_bfs_scenario.py            Merges BFS scenario into data/
+merge_irs_scenario.py            Merges IRS scenario into data/
+merge_bep_scenario.py            Merges BEP scenario into data/
+merge_signed_cebds.py            Merges signed CEBD records into data/
+merge_pipeline_intakes.py        Merges additional pipeline intakes (R-05522, R-02233)
+
+.env.example                     API key template (copy to .env, never commit .env)
+requirements.txt                 Pinned dependencies
+output/                          Generated run artifacts (gitignored)
+data/                            Generated synthetic data (gitignored)
 ```
+
+---
+
+## Dependencies
+
+Key packages: `langchain`, `langchain-chroma`, `langchain-text-splitters`, `langchain-huggingface`, `chromadb`, `sentence-transformers`, `anthropic`, `python-dotenv`, `rich`, `pandas`, `pydantic`.
+
+See `requirements.txt` for pinned versions.
